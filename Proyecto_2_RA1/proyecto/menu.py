@@ -12,6 +12,11 @@ def ejecutar_menu():
         print("3. Generar informe general por indicador")
         print("4. Mostrar todos los niños registrados")
         print("0. Salir")
+        print("===== INTECAP CTO =====")
+        print("Alejandra Hidalgo")
+        print("Lisandro Tzunux")
+        print("Daniel Camey")
+        print("===== =====")
 
         opcion = input("Seleccione una opción: ")
 
