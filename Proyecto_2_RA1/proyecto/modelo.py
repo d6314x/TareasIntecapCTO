@@ -1,5 +1,4 @@
 # modelo.py
-
 class Nino:
     _contador_id = 1  # variable de clase (compartida entre todas las instancias)
 
