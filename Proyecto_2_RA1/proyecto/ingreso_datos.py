@@ -13,7 +13,7 @@ def ingresar_datos():
             edad = int(input("Edad (en meses, 0 a 24): "))
             #if edad >= 0 and edad <= 24:
             if 0 <= edad <= 24:
-                break]#Si se cumplen los parametros termina y pasa a solicita el siguiente dato.
+                break #Si se cumplen los parametros termina y pasa a solicita el siguiente dato.
             else:
                 print("Edad inválida. Debe estar entre 0 y 24 meses.")#Si se ingresa un dato invalido solicita ingresar el dato nuevamente
         except ValueError:
