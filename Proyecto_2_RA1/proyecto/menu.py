@@ -20,19 +20,19 @@ def ejecutar_menu():
 
         opcion = input("Seleccione una opción: ")
 
+#Función para el requerimiento de levantar datos
         if opcion == '1':
             ingresar_datos()
-        elif opcion == '2':
+        elif opcion == '2':#Este segmento de codigo nos permite generar un informe de los datos ingresados por departamento
             generar_informe_por_departamento()
             #print("en construccion")
-        elif opcion == '3':
+        elif opcion == '3':#Este segmento de código nos permite generar un informe general de los datos ingresados
             generar_informe_general()
             #print("en construccion")
-        elif opcion == '4':
+        elif opcion == '4':#Nos permite mostrar todos los datos registrados
             mostrar_datos_registrados()
-        elif opcion == '0':
+        elif opcion == '0':#Salir del Programa
             print("Saliendo del programa.")
             break
         else:
             print("Opción inválida. Intente de nuevo.")
-
