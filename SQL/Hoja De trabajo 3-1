@@ -1,0 +1,307 @@
+❯ mysql -u root -p
+mysql: Deprecated program name. It will be removed in a future release, use '/usr/bin/mariadb' instead
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 11.8.2-MariaDB Arch Linux
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++---------------------+
+| Database            |
++---------------------+
+| base_educativa      |
+| gestion_bibliotecas |
+| historia_clinica    |
+| information_schema  |
+| mysql               |
+| performance_schema  |
+| sys                 |
+| test                |
++---------------------+
+8 rows in set (0.001 sec)
+
+MariaDB [(none)]> use historia_clinica;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [historia_clinica]> show tables;
++----------------------------+
+| Tables_in_historia_clinica |
++----------------------------+
+| consultas                  |
+| doctores                   |
+| pacientes                  |
+| recetas                    |
++----------------------------+
+4 rows in set (0.001 sec)
+
+MariaDB [historia_clinica]> SELECT * FROM pacientes;
++-------------+----------+------------+------------------+--------+----------+-------------------------------+
+| id_paciente | nombre   | apellido   | fecha_nacimiento | genero | telefono | correo                        |
++-------------+----------+------------+------------------+--------+----------+-------------------------------+
+|           1 | Ana      | García     | 1990-05-12       | F      | 555-1234 | ana.garcia@example.com        |
+|           2 | Luis     | Pérez      | 1985-09-20       | M      | 555-5678 | luis.perez@example.com        |
+|           3 | Marta    | López      | 2000-01-08       | F      | 555-0001 | marta.lopez@example.com       |
+|           4 | Carlos   | Martínez   | 1978-03-11       | M      | 555-1111 | carlos.martinez@example.com   |
+|           5 | Laura    | Ramírez    | 1992-07-21       | F      | 555-2222 | laura.ramirez@example.com     |
+|           6 | Pedro    | Sánchez    | 1983-10-30       | M      | 555-3333 | pedro.sanchez@example.com     |
+|           7 | Lucía    | Fernández  | 1995-02-14       | F      | 555-4444 | lucia.fernandez@example.com   |
+|           8 | Miguel   | Torres     | 1987-06-09       | M      | 555-5555 | miguel.torres@example.com     |
+|           9 | Elena    | Castro     | 1999-12-25       | F      | 555-6666 | elena.castro@example.com      |
+|          10 | José     | Ortega     | 1991-04-05       | M      | 555-7777 | jose.ortega@example.com       |
+|          11 | Andrea   | Silva      | 2002-11-17       | F      | 555-8888 | andrea.silva@example.com      |
+|          12 | Daniel   | Vargas     | 1980-08-08       | M      | 555-9999 | daniel.vargas@example.com     |
+|          13 | Paula    | Reyes      | 1993-01-19       | F      | 555-1010 | paula.reyes@example.com       |
+|          14 | Jorge    | Mendoza    | 1989-05-27       | M      | 555-2020 | jorge.mendoza@example.com     |
+|          15 | Valeria  | Navarro    | 1997-03-03       | F      | 555-3030 | valeria.navarro@example.com   |
+|          16 | Diego    | Morales    | 1986-12-12       | M      | 555-4040 | diego.morales@example.com     |
+|          17 | Carmen   | Iglesias   | 1994-09-09       | F      | 555-5050 | carmen.iglesias@example.com   |
+|          18 | Ricardo  | Domínguez  | 1975-07-07       | M      | 555-6060 | ricardo.dominguez@example.com |
+|          19 | Sofía    | Herrera    | 1996-06-06       | F      | 555-7070 | sofia.herrera@example.com     |
+|          20 | Raúl     | Guzmán     | 1984-04-04       | M      | 555-8080 | raul.guzman@example.com       |
+|          21 | Camila   | Luna       | 1998-02-02       | F      | 555-9090 | camila.luna@example.com       |
+|          22 | Fernando | Peña       | 1982-11-11       | M      | 555-1212 | fernando.pena@example.com     |
+|          23 | Natalia  | Cruz       | 1990-10-10       | F      | 555-1313 | natalia.cruz@example.com      |
+|          24 | Iván     | Delgado    | 1999-09-09       | M      | 555-1414 | ivan.delgado@example.com      |
+|          25 | Renata   | Acosta     | 2001-08-08       | F      | 555-1515 | renata.acosta@example.com     |
++-------------+----------+------------+------------------+--------+----------+-------------------------------+
+25 rows in set (0.001 sec)
+
+MariaDB [historia_clinica]> SELECT nombre, apellido FROM pacientes;
++----------+------------+
+| nombre   | apellido   |
++----------+------------+
+| Ana      | García     |
+| Luis     | Pérez      |
+| Marta    | López      |
+| Carlos   | Martínez   |
+| Laura    | Ramírez    |
+| Pedro    | Sánchez    |
+| Lucía    | Fernández  |
+| Miguel   | Torres     |
+| Elena    | Castro     |
+| José     | Ortega     |
+| Andrea   | Silva      |
+| Daniel   | Vargas     |
+| Paula    | Reyes      |
+| Jorge    | Mendoza    |
+| Valeria  | Navarro    |
+| Diego    | Morales    |
+| Carmen   | Iglesias   |
+| Ricardo  | Domínguez  |
+| Sofía    | Herrera    |
+| Raúl     | Guzmán     |
+| Camila   | Luna       |
+| Fernando | Peña       |
+| Natalia  | Cruz       |
+| Iván     | Delgado    |
+| Renata   | Acosta     |
++----------+------------+
+25 rows in set (0.001 sec)
+
+MariaDB [historia_clinica]> SELECT * FROM doctores;
++-----------+---------------------+------------------+---------------------+
+| id_doctor | nombre              | especialidad     | correo              |
++-----------+---------------------+------------------+---------------------+
+|         1 | Dr. Juan Herrera    | Medicina General | jherrera@clinic.com |
+|         2 | Dra. María Díaz     | Pediatría        | mdiaz@clinic.com    |
+|         3 | Dr. Carlos Ríos     | Cardiología      | crios@clinic.com    |
+|         4 | Dra. Elena Blanco   | Dermatología     | eblanco@clinic.com  |
+|         5 | Dr. Andrés Núñez    | Neurología       | anunez@clinic.com   |
++-----------+---------------------+------------------+---------------------+
+5 rows in set (0.001 sec)
+
+MariaDB [historia_clinica]> SELECT * FROM pacientes
+    -> WHERE nombre = 'Ana';
++-------------+--------+----------+------------------+--------+----------+------------------------+
+| id_paciente | nombre | apellido | fecha_nacimiento | genero | telefono | correo                 |
++-------------+--------+----------+------------------+--------+----------+------------------------+
+|           1 | Ana    | García   | 1990-05-12       | F      | 555-1234 | ana.garcia@example.com |
++-------------+--------+----------+------------------+--------+----------+------------------------+
+1 row in set (0.001 sec)
+
+MariaDB [historia_clinica]> 
+MariaDB [historia_clinica]> SELECT * FROM pacientes
+    -> WHERE apellido LIKE 'L%';
++-------------+--------+----------+------------------+--------+----------+-------------------------+
+| id_paciente | nombre | apellido | fecha_nacimiento | genero | telefono | correo                  |
++-------------+--------+----------+------------------+--------+----------+-------------------------+
+|           3 | Marta  | López    | 2000-01-08       | F      | 555-0001 | marta.lopez@example.com |
+|          21 | Camila | Luna     | 1998-02-02       | F      | 555-9090 | camila.luna@example.com |
++-------------+--------+----------+------------------+--------+----------+-------------------------+
+2 rows in set (0.001 sec)
+
+MariaDB [historia_clinica]> SELECT * FROM pacientes
+    -> WHERE correo LIKE '%@clinic.com';
+Empty set (0.001 sec)
+
+MariaDB [historia_clinica]> SELECT * FROM doctores
+    -> WHERE nombre LIKE 'Dr.%';
++-----------+---------------------+------------------+---------------------+
+| id_doctor | nombre              | especialidad     | correo              |
++-----------+---------------------+------------------+---------------------+
+|         1 | Dr. Juan Herrera    | Medicina General | jherrera@clinic.com |
+|         3 | Dr. Carlos Ríos     | Cardiología      | crios@clinic.com    |
+|         5 | Dr. Andrés Núñez    | Neurología       | anunez@clinic.com   |
++-----------+---------------------+------------------+---------------------+
+3 rows in set (0.001 sec)
+
+MariaDB [historia_clinica]> SELECT * FROM pacientes
+    -> WHERE LENGTH(apellido) = 5;
++-------------+----------+----------+------------------+--------+----------+---------------------------+
+| id_paciente | nombre   | apellido | fecha_nacimiento | genero | telefono | correo                    |
++-------------+----------+----------+------------------+--------+----------+---------------------------+
+|          11 | Andrea   | Silva    | 2002-11-17       | F      | 555-8888 | andrea.silva@example.com  |
+|          13 | Paula    | Reyes    | 1993-01-19       | F      | 555-1010 | paula.reyes@example.com   |
+|          22 | Fernando | Peña     | 1982-11-11       | M      | 555-1212 | fernando.pena@example.com |
++-------------+----------+----------+------------------+--------+----------+---------------------------+
+3 rows in set (0.001 sec)
+
+MariaDB [historia_clinica]> SELECT * FROM pacientes
+    -> ORDER BY apellido ASC;
++-------------+----------+------------+------------------+--------+----------+-------------------------------+
+| id_paciente | nombre   | apellido   | fecha_nacimiento | genero | telefono | correo                        |
++-------------+----------+------------+------------------+--------+----------+-------------------------------+
+|          25 | Renata   | Acosta     | 2001-08-08       | F      | 555-1515 | renata.acosta@example.com     |
+|           9 | Elena    | Castro     | 1999-12-25       | F      | 555-6666 | elena.castro@example.com      |
+|          23 | Natalia  | Cruz       | 1990-10-10       | F      | 555-1313 | natalia.cruz@example.com      |
+|          24 | Iván     | Delgado    | 1999-09-09       | M      | 555-1414 | ivan.delgado@example.com      |
+|          18 | Ricardo  | Domínguez  | 1975-07-07       | M      | 555-6060 | ricardo.dominguez@example.com |
+|           7 | Lucía    | Fernández  | 1995-02-14       | F      | 555-4444 | lucia.fernandez@example.com   |
+|           1 | Ana      | García     | 1990-05-12       | F      | 555-1234 | ana.garcia@example.com        |
+|          20 | Raúl     | Guzmán     | 1984-04-04       | M      | 555-8080 | raul.guzman@example.com       |
+|          19 | Sofía    | Herrera    | 1996-06-06       | F      | 555-7070 | sofia.herrera@example.com     |
+|          17 | Carmen   | Iglesias   | 1994-09-09       | F      | 555-5050 | carmen.iglesias@example.com   |
+|           3 | Marta    | López      | 2000-01-08       | F      | 555-0001 | marta.lopez@example.com       |
+|          21 | Camila   | Luna       | 1998-02-02       | F      | 555-9090 | camila.luna@example.com       |
+|           4 | Carlos   | Martínez   | 1978-03-11       | M      | 555-1111 | carlos.martinez@example.com   |
+|          14 | Jorge    | Mendoza    | 1989-05-27       | M      | 555-2020 | jorge.mendoza@example.com     |
+|          16 | Diego    | Morales    | 1986-12-12       | M      | 555-4040 | diego.morales@example.com     |
+|          15 | Valeria  | Navarro    | 1997-03-03       | F      | 555-3030 | valeria.navarro@example.com   |
+|          10 | José     | Ortega     | 1991-04-05       | M      | 555-7777 | jose.ortega@example.com       |
+|          22 | Fernando | Peña       | 1982-11-11       | M      | 555-1212 | fernando.pena@example.com     |
+|           2 | Luis     | Pérez      | 1985-09-20       | M      | 555-5678 | luis.perez@example.com        |
+|           5 | Laura    | Ramírez    | 1992-07-21       | F      | 555-2222 | laura.ramirez@example.com     |
+|          13 | Paula    | Reyes      | 1993-01-19       | F      | 555-1010 | paula.reyes@example.com       |
+|           6 | Pedro    | Sánchez    | 1983-10-30       | M      | 555-3333 | pedro.sanchez@example.com     |
+|          11 | Andrea   | Silva      | 2002-11-17       | F      | 555-8888 | andrea.silva@example.com      |
+|           8 | Miguel   | Torres     | 1987-06-09       | M      | 555-5555 | miguel.torres@example.com     |
+|          12 | Daniel   | Vargas     | 1980-08-08       | M      | 555-9999 | daniel.vargas@example.com     |
++-------------+----------+------------+------------------+--------+----------+-------------------------------+
+25 rows in set (0.001 sec)
+
+MariaDB [historia_clinica]> SELECT * FROM consultas
+    -> ORDER BY fecha DESC;
++-------------+-------------+-----------+------------+-----------------------------+----------------------+
+| id_consulta | id_paciente | id_doctor | fecha      | motivo                      | diagnostico          |
++-------------+-------------+-----------+------------+-----------------------------+----------------------+
+|          15 |          15 |         4 | 2025-07-01 | Picazón                     | Dermatitis alérgica  |
+|          14 |          14 |         2 | 2025-06-30 | Dolor abdominal             | Gastritis aguda      |
+|          13 |          13 |         1 | 2025-06-29 | Revisión                    | Sin novedad          |
+|          12 |          12 |         5 | 2025-06-28 | Dolores musculares          | Fatiga crónica       |
+|          11 |          11 |         1 | 2025-06-26 | Chequeo                     | Todo en orden        |
+|          10 |          10 |         4 | 2025-06-24 | Alergia                     | Urticaria            |
+|           9 |           9 |         3 | 2025-06-22 | Palpitaciones frecuentes    | Ansiedad             |
+|           8 |           8 |         2 | 2025-06-20 | Dolor estomacal             | Reflujo              |
+|           7 |           7 |         1 | 2025-06-18 | Control anual               | Salud estable        |
+|           6 |           6 |         5 | 2025-06-16 | Dolor de cabeza             | Migraña crónica      |
+|           5 |           5 |         4 | 2025-06-14 | Irritación en la piel       | Dermatitis           |
+|           4 |           4 |         3 | 2025-06-12 | Palpitaciones               | Arritmia leve        |
+|           3 |           3 |         1 | 2025-06-10 | Revisión general            | Salud estable        |
+|           2 |           2 |         2 | 2025-06-05 | Dolor abdominal             | Gastritis            |
+|           1 |           1 |         1 | 2025-06-01 | Dolor de cabeza persistente | Migraña              |
++-------------+-------------+-----------+------------+-----------------------------+----------------------+
+15 rows in set (0.001 sec)
+
+MariaDB [historia_clinica]> SELECT * FROM doctoresORDER BY especialidad ASC;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'BY especialidad ASC' at line 1
+MariaDB [historia_clinica]> SELECT * FROM doctores
+    -> ORDER BY especialidad ASC;
++-----------+---------------------+------------------+---------------------+
+| id_doctor | nombre              | especialidad     | correo              |
++-----------+---------------------+------------------+---------------------+
+|         3 | Dr. Carlos Ríos     | Cardiología      | crios@clinic.com    |
+|         4 | Dra. Elena Blanco   | Dermatología     | eblanco@clinic.com  |
+|         1 | Dr. Juan Herrera    | Medicina General | jherrera@clinic.com |
+|         5 | Dr. Andrés Núñez    | Neurología       | anunez@clinic.com   |
+|         2 | Dra. María Díaz     | Pediatría        | mdiaz@clinic.com    |
++-----------+---------------------+------------------+---------------------+
+5 rows in set (0.000 sec)
+
+MariaDB [historia_clinica]> SELECT MIN(fecha) AS fecha_consulta_mas_antigua
+    -> FROM consultas;
++----------------------------+
+| fecha_consulta_mas_antigua |
++----------------------------+
+| 2025-06-01                 |
++----------------------------+
+1 row in set (0.001 sec)
+
+MariaDB [historia_clinica]> SELECT MAX(fecha) AS fecha_consulta_mas_reciente
+    -> FROM consultas;
++-----------------------------+
+| fecha_consulta_mas_reciente |
++-----------------------------+
+| 2025-07-01                  |
++-----------------------------+
+1 row in set (0.001 sec)
+
+MariaDB [historia_clinica]> SELECT *
+    -> FROM pacientes
+    -> WHERE fecha_nacimiento = (
+    ->     SELECT MAX(fecha_nacimiento) FROM pacientes
+    -> );
++-------------+--------+----------+------------------+--------+----------+--------------------------+
+| id_paciente | nombre | apellido | fecha_nacimiento | genero | telefono | correo                   |
++-------------+--------+----------+------------------+--------+----------+--------------------------+
+|          11 | Andrea | Silva    | 2002-11-17       | F      | 555-8888 | andrea.silva@example.com |
++-------------+--------+----------+------------------+--------+----------+--------------------------+
+1 row in set (0.001 sec)
+
+MariaDB [historia_clinica]> SELECT
+    ->     p.nombre AS nombre_paciente,
+    ->     p.apellido AS apellido_paciente,
+    ->     r.medicamento
+    -> FROM recetas r
+    -> JOIN consultas c ON r.id_consulta = c.id_consulta
+    -> JOIN pacientes p ON c.id_paciente = p.id_paciente;
++-----------------+-------------------+-------------------------+
+| nombre_paciente | apellido_paciente | medicamento             |
++-----------------+-------------------+-------------------------+
+| Ana             | García            | Ibuprofeno 400mg        |
+| Luis            | Pérez             | Omeprazol 20mg          |
+| Marta           | López             | Multivitamínico         |
+| Carlos          | Martínez          | Propranolol             |
+| Laura           | Ramírez           | Crema de hidrocortisona |
+| Pedro           | Sánchez           | Sumatriptán             |
+| Lucía           | Fernández         | Vitaminas B12           |
+| Miguel          | Torres            | Ranitidina              |
+| Elena           | Castro            | Ansiolítico             |
+| José            | Ortega            | Loratadina              |
+| Andrea          | Silva             | Ninguno                 |
+| Daniel          | Vargas            | Ibuprofeno              |
+| Paula           | Reyes             | Ninguno                 |
+| Jorge           | Mendoza           | Lansoprazol             |
+| Valeria         | Navarro           | Antihistamínico         |
++-----------------+-------------------+-------------------------+
+15 rows in set (0.001 sec)
+
+MariaDB [historia_clinica]> SELECT
+    ->     c.*
+    -> FROM consultas c
+    -> JOIN doctores d ON c.id_doctor = d.id_doctor
+    -> WHERE d.nombre = 'María' AND d.apellido = 'Díaz';
+ERROR 1054 (42S22): Unknown column 'd.apellido' in 'WHERE'
+MariaDB [historia_clinica]>
+
+
+SELECT
+    c.*
+FROM consultas c
+JOIN doctores d ON c.id_doctor = d.id_doctor
+WHERE d.nombre = 'María Díaz';
